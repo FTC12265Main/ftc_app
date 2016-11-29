@@ -21,7 +21,7 @@ public class K9 extends LinearOpMode
     private DcMotor motorRight;
 
     private Servo armServo;
-    
+
     @Override
     public void runOpMode () throws  InterruptedException
     {
