@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
  */
 
 
-@TeleOp eleop(name = "K9")
+@TeleOp (name = "ENTER NAME HERE")
 //@disabled
 public class Base extends LinearOpMode
 {
