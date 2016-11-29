@@ -16,10 +16,10 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class K9 extends LinearOpMode
 {
 
-    private DcMotor motorLeft;
-    private DcMotor motorRight;
+    DcMotor motorLeft;
+    DcMotor motorRight;
 
-    private Servo armServo;
+    Servo armServo;
 
     @Override
     public void runOpMode () throws  InterruptedException
