@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 @TeleOp eleop(name = "K9")
 
 //@disabled
-public class base_raymond extends LinearOpMode
+public class K9 extends LinearOpMode
 {
     @Override
     public void runOpMode () throws  InterruptedException
