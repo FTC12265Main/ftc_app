@@ -11,9 +11,16 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @TeleOp (name = "ENTER NAME HERE")
 
+
 //@disabled
 public class K9 extends LinearOpMode
 {
+
+    private DcMotor motorLeft;
+    private DcMotor motorRight;
+
+    private Servo armServo;
+    
     @Override
     public void runOpMode () throws  InterruptedException
     {

@@ -13,10 +13,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 //@disabled
 public class Base extends LinearOpMode
 {
-    private DcMotor motorLeft;
-    private DcMotor motorRight;
 
-    private Servo armServo;
 
     @Override
     public void runOpMode () throws  InterruptedException
