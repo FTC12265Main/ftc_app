@@ -16,14 +16,17 @@ public class K9 extends LinearOpMode
     @Override
     public void runOpMode () throws  InterruptedException
     {
+        motorLeft = hardwareMap.dcMotor.get("motorLeft");
+        motorRight = hardwareMap.dcMotor.get("motorRight");
+        motorLeft.setDirection(Dcmotor.Direction.REVERSE);
+        armServo = hardwardMap.servo.get("armServo");
 
         waitForStart();
 
-        while (opModeIsActive())
-        {
+        while (opModeIsActive()) {
 
 
-
+        }
             idle();
     }
 
