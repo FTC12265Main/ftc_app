@@ -11,24 +11,21 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp (name = "ENTER NAME HERE")
 //@disabled
-public class Base extends LinearOpMode
-{
+public class Base extends LinearOpMode {
 
 
     @Override
-    public void runOpMode () throws  InterruptedException
-    {
+    public void runOpMode() throws InterruptedException {
 
         waitForStart();
 
-        while (opModeIsActive())
-        {
-
+        while (opModeIsActive()) {
 
 
             idle();
+        }
+
+
     }
-
-
 
 }

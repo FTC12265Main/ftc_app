@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.hardware.Servo;
  */
 
 
-@TeleOp (name = "ENTER NAME HERE")
+@TeleOp (name = "K9")
 
 //@disabled
 public class K9 extends LinearOpMode
