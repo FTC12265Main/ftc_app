@@ -24,7 +24,18 @@ public class K9 extends LinearOpMode
 
         waitForStart();
 
+<<<<<<< HEAD
+        while (opModeIsActive())
+        {
+
+            
+
+
+        }
+
+=======
         while (opModeIsActive()) {
+>>>>>>> ed028b80afd002702e253a85a1ecfc406bf08416
 
 
         }
