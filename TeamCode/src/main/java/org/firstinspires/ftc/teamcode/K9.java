@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 /**
  * Created by Rulon on 2016-11-28.
+ * Edited by Raymond 6:03
  */
 
 
@@ -16,14 +17,17 @@ public class K9 extends LinearOpMode
     @Override
     public void runOpMode () throws  InterruptedException
     {
+        motorLeft = hardwareMap.dcMotor.get("motorLeft");
+        motorRight = hardwareMap.dcMotor.get("motorRight");
+        motorLeft.setDirection(Dcmotor.Direction.REVERSE);
+        armServo = hardwardMap.servo.get("armServo");
 
         waitForStart();
 
-        while (opModeIsActive())
-        {
+        while (opModeIsActive()) {
 
 
-
+        }
             idle();
     }
 
