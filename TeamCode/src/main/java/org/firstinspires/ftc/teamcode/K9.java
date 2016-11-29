@@ -2,6 +2,8 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 
 /**
  * Created by Rulon on 2016-11-28.
@@ -10,7 +12,6 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 
 @TeleOp (name = "ENTER NAME HERE")
-
 
 //@disabled
 public class K9 extends LinearOpMode
@@ -26,14 +27,17 @@ public class K9 extends LinearOpMode
     {
         motorLeft = hardwareMap.dcMotor.get("motorLeft");
         motorRight = hardwareMap.dcMotor.get("motorRight");
-        motorLeft.setDirection(Dcmotor.Direction.REVERSE);
-        armServo = hardwardMap.servo.get("armServo");
+        motorLeft.setDirection(DcMotor.Direction.REVERSE);
+        armServo = hardwareMap.servo.get("armServo");
 
         waitForStart();
 
-<<<<<<< HEAD
+
         while (opModeIsActive())
         {
+
+            motorRight.setPower(gamepad1.right_stick_y);
+            motorLeft.setPower(gamepad1.left_stick_y);
 
 
 
@@ -42,9 +46,9 @@ public class K9 extends LinearOpMode
 
         }
 
-=======
+
         while (opModeIsActive()) {
->>>>>>> ed028b80afd002702e253a85a1ecfc406bf08416
+
 
 
         }
