@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
  * Created by Rulon on 2016-11-30.
  */
 
-public class Base extends LinearOpMode
+public class Base_EDITED extends  LinearOpMode
 {
 
 
