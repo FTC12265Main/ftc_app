@@ -1,14 +1,10 @@
-package org.firstinspires.ftc.teamcode;
-
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+package HELIOS;
 
 /**
- * Created by Rulon on 2016-11-30.
+ * Created by Rulon on 2016-12-03.
  */
 
-public class Base_EDITED extends LinearOpMode
-{
-
+public class HEILOS_TANK {
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -46,6 +42,5 @@ public class Base_EDITED extends LinearOpMode
 
 
     }
-
 
 }
