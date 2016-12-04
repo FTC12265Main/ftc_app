@@ -30,8 +30,8 @@ public class K9 extends LinearOpMode
         armServo = hardwareMap.servo.get("armServo");
         waitForStart();
         while (opModeIsActive()) {
-            motorRight.setPower(-gamepad1.left_stick_y);
-            motorLeft.setPower(-gamepad1.right_stick_y);
+            motorRight.setPower(-gamepad1.left_stick_y+gamepad1.right_stick_x);
+            motorLeft.setPower(-gamepad1.left_stick_y-gamepad1.right_stick_x);
         }
             idle();
     }
