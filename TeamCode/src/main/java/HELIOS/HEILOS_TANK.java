@@ -1,5 +1,7 @@
 package HELIOS;
 
+import com.qualcomm.robotcore.hardware.DcMotor;
+
 /**
  * Created by Rulon on 2016-12-03.
  */
@@ -14,6 +16,10 @@ public class HEILOS_TANK {
 //    @Override
     private void init()
     {
+        private DcMotor leftWheel
+        private DcMotor rightWheel
+
+        leftWheel.
 
 
 
