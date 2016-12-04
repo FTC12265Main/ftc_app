@@ -16,8 +16,8 @@ public class HEILOS_TANK {
 //    @Override
     private void init()
     {
-        private DcMotor leftWheel
-        private DcMotor rightWheel
+        private DcMotor leftWheel;
+        private DcMotor rightWheel;
 
         leftWheel.
 
