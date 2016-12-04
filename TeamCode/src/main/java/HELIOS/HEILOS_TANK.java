@@ -8,12 +8,12 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 public class HEILOS_TANK {
 
-    @Override
+//    @Override
     public void runOpMode() throws InterruptedException {
 
     }
 
-    @Override
+//    @Override
     private void init()
     {
         private DcMotor leftWheel
@@ -25,7 +25,7 @@ public class HEILOS_TANK {
 
     }
 
-    @Override
+//    @Override
     public void start()
     {
 
@@ -33,7 +33,7 @@ public class HEILOS_TANK {
 
     }
 
-    @Override
+//    @Override
     public void loop()
     {
 
@@ -41,7 +41,7 @@ public class HEILOS_TANK {
 
     }
 
-    @Override
+//    @Override
     public void stop()
     {
 

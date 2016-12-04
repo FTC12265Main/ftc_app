@@ -7,7 +7,6 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 /**
  * Created by Rulon on 2016-11-28.
- * Edited by Raymond 6:03
  */
 
 
@@ -27,37 +26,13 @@ public class K9 extends LinearOpMode
     {
         motorLeft = hardwareMap.dcMotor.get("motorLeft");
         motorRight = hardwareMap.dcMotor.get("motorRight");
-        motorLeft.setDirection(DcMotor.Direction.REVERSE);
+        motorRight.setDirection(DcMotor.Direction.REVERSE);
         armServo = hardwareMap.servo.get("armServo");
-
         waitForStart();
-
-
-        while (opModeIsActive())
-        {
-
+        while (opModeIsActive()) {
             motorRight.setPower(-gamepad1.left_stick_y);
             motorLeft.setPower(-gamepad1.right_stick_y);
-
-
-
-
-
-
-            
-
-
-        }
-
-
-        while (opModeIsActive()) {
-
-
-
         }
             idle();
     }
-
-
-
 }
