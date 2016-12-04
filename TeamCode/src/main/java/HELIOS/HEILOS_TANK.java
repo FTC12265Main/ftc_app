@@ -6,12 +6,12 @@ package HELIOS;
 
 public class HEILOS_TANK {
 
-    @Override
+//    @Override
     public void runOpMode() throws InterruptedException {
 
     }
 
-    @Override
+//    @Override
     private void init()
     {
 
@@ -19,7 +19,7 @@ public class HEILOS_TANK {
 
     }
 
-    @Override
+//    @Override
     public void start()
     {
 
@@ -27,7 +27,7 @@ public class HEILOS_TANK {
 
     }
 
-    @Override
+//    @Override
     public void loop()
     {
 
@@ -35,7 +35,7 @@ public class HEILOS_TANK {
 
     }
 
-    @Override
+//    @Override
     public void stop()
     {
 
