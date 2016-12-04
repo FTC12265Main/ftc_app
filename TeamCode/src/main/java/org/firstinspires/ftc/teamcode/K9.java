@@ -35,8 +35,11 @@ public class K9 extends LinearOpMode
         while (opModeIsActive())
         {
 
-            motorRight.setPower(gamepad1.right_stick_y);
-            motorLeft.setPower(gamepad1.left_stick_y);
+            motorRight.setPower(-gamepad1.left_stick_y);
+            motorLeft.setPower(-gamepad1.right_stick_y);
+
+
+
 
 
 
