@@ -65,6 +65,11 @@ public class Autonomous extends LinearOpMode {
 
     @Override
     public void runOpMode() {
+        motorLeft = hardwareMap.dcMotor.get("motorLeft");
+        motorRight = hardwareMap.dcMotor.get("motorRight");
+        motorRight.setDirection(DcMotor.Direction.REVERSE);
+        armServo = hardwareMap.servo.get("armServo");
+        Grabber = hardwareMap.servo.get("Grabber");
         double left;
         double right;
         double max;
@@ -80,7 +85,7 @@ public class Autonomous extends LinearOpMode {
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
-        driveForwardTime(0.75,1000)
+
 
         // run until the end of the match (driver presses STOP)
 
@@ -91,8 +96,13 @@ public class Autonomous extends LinearOpMode {
         Thread.sleep(time);
     }
     public void turnLeftTime(double power, long time) throws InterruptedException{
-        motorLeft.setPower(power);
+        motorLeft.setPower(-power);
         motorRight.setPower(power);
+        Thread.sleep(time);
+    }
+    public void turnLeftTime(double power, long time ) throws InterruptedException{
+        motorLeft.setPower(power);
+        motorRight.setPower(-power);
         Thread.sleep(time);
     }
 }
