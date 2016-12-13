@@ -51,7 +51,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  *
  *   The desired path in this example is:
  *   - Drive forward for 48 inches
- *   - Spin right for 12 Inches
+ *   - Spin rightMotorPower for 12 Inches
  *   - Drive Backwards for 24 inches
  *   - Stop and close the claw.
  *
@@ -156,7 +156,7 @@ public class PushbotAutoDriveByEncoder_Linear extends LinearOpMode {
             robot.leftMotor.setPower(Math.abs(speed));
             robot.rightMotor.setPower(Math.abs(speed));
 
-            // keep looping while we are still active, and there is time left, and both motors are running.
+            // keep looping while we are still active, and there is time leftMotorPower, and both motors are running.
             while (opModeIsActive() &&
                    (runtime.seconds() < timeoutS) &&
                    (robot.leftMotor.isBusy() && robot.rightMotor.isBusy())) {

@@ -49,9 +49,9 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * The code is structured as a LinearOpMode
  *
  * This particular OpMode executes a POV Game style Teleop for a PushBot
- * In this mode the left stick moves the robot FWD and back, the Right stick turns left and right.
+ * In this mode the leftMotorPower stick moves the robot FWD and back, the Right stick turns left and rightMotor.
  * It raises and lowers the claw using the Gampad Y and A buttons respectively.
- * It also opens and closes the claws slowly using the left and right Bumper buttons.
+ * It also opens and closes the claws slowly using the leftMotorPower and rightMotorPower Bumper buttons.
  *
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
@@ -63,15 +63,15 @@ public class PushbotTeleopPOV_Linear extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwarePushbot robot           = new HardwarePushbot();   // Use a Pushbot's hardware
-                                                               // could also use HardwarePushbotMatrix class.
+    double leftMotorPower;
+    double rightMotorPower;
+    double maxPower;                                                    // could also use HardwarePushbotMatrix class.
     double          clawOffset      = 0;                       // Servo mid position
     final double    CLAW_SPEED      = 0.02 ;                   // sets rate to move servo
 
     @Override
     public void runOpMode() {
-        double left;
-        double right;
-        double max;
+
 
         /* Initialize the hardware variables.
          * The init() method of the hardware class does all the work here
@@ -89,22 +89,22 @@ public class PushbotTeleopPOV_Linear extends LinearOpMode {
         while (opModeIsActive()) {
 
             // Run wheels in POV mode (note: The joystick goes negative when pushed forwards, so negate it)
-            // In this mode the Left stick moves the robot fwd and back, the Right stick turns left and right.
-            left  = -gamepad1.left_stick_y + gamepad1.right_stick_x;
-            right = -gamepad1.left_stick_y - gamepad1.right_stick_x;
+            // In this mode the Left stick moves the robot fwd and back, the Right stick turns leftMotorPower and rightMotorPower.
+            leftMotorPower = -gamepad1.left_stick_y + gamepad1.right_stick_x;
+            rightMotorPower = -gamepad1.left_stick_y - gamepad1.right_stick_x;
 
             // Normalize the values so neither exceed +/- 1.0
-            max = Math.max(Math.abs(left), Math.abs(right));
-            if (max > 1.0)
+            maxPower = Math.max(Math.abs(leftMotorPower), Math.abs(rightMotorPower));
+            if (maxPower > 1.0)
             {
-                left /= max;
-                right /= max;
+                leftMotorPower /= maxPower;
+                rightMotorPower /= maxPower;
             }
 
-            robot.leftMotor.setPower(left);
-            robot.rightMotor.setPower(right);
+            robot.leftMotor.setPower(leftMotorPower);
+            robot.rightMotor.setPower(rightMotorPower);
 
-            // Use gamepad left & right Bumpers to open and close the claw
+            // Use gamepad leftMotorPower & rightMotorPower Bumpers to open and close the claw
             if (gamepad1.right_bumper)
                 clawOffset += CLAW_SPEED;
             else if (gamepad1.left_bumper)
@@ -125,8 +125,8 @@ public class PushbotTeleopPOV_Linear extends LinearOpMode {
 
             // Send telemetry message to signify robot running;
             telemetry.addData("claw",  "Offset = %.2f", clawOffset);
-            telemetry.addData("left",  "%.2f", left);
-            telemetry.addData("right", "%.2f", right);
+            telemetry.addData("leftMotorPower",  "%.2f", leftMotorPower);
+            telemetry.addData("rightMotorPower", "%.2f", rightMotorPower);
             telemetry.update();
 
             // Pause for metronome tick.  40 mS each cycle = update 25 times a second.

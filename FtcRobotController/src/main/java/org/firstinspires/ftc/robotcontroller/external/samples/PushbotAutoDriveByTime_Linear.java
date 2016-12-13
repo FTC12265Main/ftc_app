@@ -48,7 +48,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  *
  *   The desired path in this example is:
  *   - Drive forward for 3 seconds
- *   - Spin right for 1.3 seconds
+ *   - Spin rightMotorPower for 1.3 seconds
  *   - Drive Backwards for 1 Second
  *   - Stop and close the claw.
  *
@@ -98,7 +98,7 @@ public class PushbotAutoDriveByTime_Linear extends LinearOpMode {
             telemetry.update();
         }
 
-        // Step 2:  Spin right for 1.3 seconds
+        // Step 2:  Spin rightMotorPower for 1.3 seconds
         robot.leftMotor.setPower(TURN_SPEED);
         robot.rightMotor.setPower(-TURN_SPEED);
         runtime.reset();

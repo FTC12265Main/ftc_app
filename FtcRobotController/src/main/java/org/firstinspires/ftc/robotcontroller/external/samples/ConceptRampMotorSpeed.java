@@ -35,7 +35,7 @@ public class ConceptRampMotorSpeed extends LinearOpMode {
     @Override
     public void runOpMode() {
 
-        // Connect to motor (Assume standard left wheel)
+        // Connect to motor (Assume standard leftMotorPower wheel)
         // Change the text in quotes to match any motor name on your robot.
         motor = hardwareMap.dcMotor.get("left_drive");
 
@@ -49,7 +49,7 @@ public class ConceptRampMotorSpeed extends LinearOpMode {
 
             // Ramp the motors, according to the rampUp variable.
             if (rampUp) {
-                // Keep stepping up until we hit the max value.
+                // Keep stepping up until we hit the maxPower value.
                 power += INCREMENT ;
                 if (power >= MAX_FWD ) {
                     power = MAX_FWD;

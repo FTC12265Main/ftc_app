@@ -142,10 +142,10 @@ public class ConceptTelemetry extends LinearOpMode  {
             telemetry.addData("ms/loop", "%.3f ms", opmodeRunTime.milliseconds() / loopCount);
 
             // Show joystick information as some other illustrative data
-            telemetry.addLine("left joystick | ")
+            telemetry.addLine("leftMotorPower joystick | ")
                     .addData("x", gamepad1.left_stick_x)
                     .addData("y", gamepad1.left_stick_y);
-            telemetry.addLine("right joystick | ")
+            telemetry.addLine("rightMotorPower joystick | ")
                     .addData("x", gamepad1.right_stick_x)
                     .addData("y", gamepad1.right_stick_y);
 

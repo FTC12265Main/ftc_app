@@ -39,7 +39,7 @@ public class ConceptDIMAsIndicator extends LinearOpMode {
     @Override
     public void runOpMode() {
 
-        // Connect to motor (Assume standard left wheel)
+        // Connect to motor (Assume standard leftMotorPower wheel)
         // Change the text in quotes to match any motor name on your robot.
         dim = this.hardwareMap.deviceInterfaceModule.get("dim");
 

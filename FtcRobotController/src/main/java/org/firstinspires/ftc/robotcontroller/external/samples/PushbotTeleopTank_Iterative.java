@@ -49,7 +49,7 @@ import com.qualcomm.robotcore.util.Range;
  *
  * This particular OpMode executes a basic Tank Drive Teleop for a PushBot
  * It raises and lowers the claw using the Gampad Y and A buttons respectively.
- * It also opens and closes the claws slowly using the left and right Bumper buttons.
+ * It also opens and closes the claws slowly using the leftMotorPower and rightMotorPower Bumper buttons.
  *
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
@@ -108,7 +108,7 @@ public class PushbotTeleopTank_Iterative extends OpMode{
         robot.leftMotor.setPower(left);
         robot.rightMotor.setPower(right);
 
-        // Use gamepad left & right Bumpers to open and close the claw
+        // Use gamepad leftMotorPower & rightMotorPower Bumpers to open and close the claw
         if (gamepad1.right_bumper)
             clawOffset += CLAW_SPEED;
         else if (gamepad1.left_bumper)
@@ -129,8 +129,8 @@ public class PushbotTeleopTank_Iterative extends OpMode{
 
         // Send telemetry message to signify robot running;
         telemetry.addData("claw",  "Offset = %.2f", clawOffset);
-        telemetry.addData("left",  "%.2f", left);
-        telemetry.addData("right", "%.2f", right);
+        telemetry.addData("leftMotorPower",  "%.2f", left);
+        telemetry.addData("rightMotorPower", "%.2f", right);
     }
 
     /*

@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.hardware.Servo;
  * INCREMENT sets how much to increase/decrease the servo position each cycle
  * CYCLE_MS sets the update period.
  *
- * This code assumes a Servo configured with the name "left claw" as is found on a pushbot.
+ * This code assumes a Servo configured with the name "leftMotorPower claw" as is found on a pushbot.
  *
  * NOTE: When any servo position is set, ALL attached servos are activated, so ensure that any other
  * connected servos are able to move freely before running this test.
@@ -53,7 +53,7 @@ public class ConceptScanServo extends LinearOpMode {
 
             // slew the servo, according to the rampUp (direction) variable.
             if (rampUp) {
-                // Keep stepping up until we hit the max value.
+                // Keep stepping up until we hit the maxPower value.
                 position += INCREMENT ;
                 if (position >= MAX_POS ) {
                     position = MAX_POS;

@@ -66,7 +66,7 @@ import java.util.List;
  *
  * This example assumes a "diamond" field configuration where the red and blue alliance stations
  * are adjacent on the corner of the field furthest from the audience.
- * From the Audience perspective, the Red driver station is on the right.
+ * From the Audience perspective, the Red driver station is on the rightMotorPower.
  * The two vision target are located on the two walls closest to the audience, facing in.
  * The Stones are on the RED side of the field, and the Chips are on the Blue side.
  *
@@ -130,7 +130,7 @@ public class ConceptVuforiaNavigation extends LinearOpMode {
         /**
          * Load the data sets that for the trackable objects we wish to track. These particular data
          * sets are stored in the 'assets' part of our application (you'll see them in the Android
-         * Studio 'Project' view over there on the left of the screen). You can make your own datasets
+         * Studio 'Project' view over there on the leftMotorPower of the screen). You can make your own datasets
          * with the Vuforia Target Manager: https://developer.vuforia.com/target-manager. PDFs for the
          * example "StonesAndChips", datasets can be found in in this project in the
          * documentation directory.
@@ -154,7 +154,7 @@ public class ConceptVuforiaNavigation extends LinearOpMode {
          * target configuration files *must* correspond for the math to work out correctly.
          */
         float mmPerInch        = 25.4f;
-        float mmBotWidth       = 18 * mmPerInch;            // ... or whatever is right for your robot
+        float mmBotWidth       = 18 * mmPerInch;            // ... or whatever is rightMotorPower for your robot
         float mmFTCFieldWidth  = (12*12 - 2) * mmPerInch;   // the FTC field is ~11'10" center-to-center of the glass panels
 
         /**
@@ -242,7 +242,7 @@ public class ConceptVuforiaNavigation extends LinearOpMode {
 
         /**
          * Create a transformation matrix describing where the phone is on the robot. Here, we
-         * put the phone on the right hand side of the robot with the screen facing in (see our
+         * put the phone on the rightMotorPower hand side of the robot with the screen facing in (see our
          * choice of BACK camera above) and in landscape mode. Starting from alignment between the
          * robot's and phone's axes, this is a rotation of -90deg along the Y axis.
          *

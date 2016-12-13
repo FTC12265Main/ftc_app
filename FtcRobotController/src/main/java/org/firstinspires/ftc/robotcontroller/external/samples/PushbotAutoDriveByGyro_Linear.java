@@ -352,7 +352,7 @@ public class PushbotAutoDriveByGyro_Linear extends LinearOpMode {
     }
 
     /**
-     * returns desired steering force.  +/- 1 range.  +ve = steer left
+     * returns desired steering force.  +/- 1 range.  +ve = steer leftMotorPower
      * @param error   Error angle in robot relative degrees
      * @param PCoeff  Proportional Gain Coefficient
      * @return
