@@ -54,7 +54,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  */
 
 @TeleOp(name="Pushbot: Teleop POV", group="Pushbot")
-@Disabled
+//@Disabled
 public class Autonomous extends LinearOpMode {
 
     /* Declare OpMode members. */
@@ -80,7 +80,7 @@ public class Autonomous extends LinearOpMode {
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
-        driveForward(1)
+        driveForwardTime(0.75,1000)
 
         // run until the end of the match (driver presses STOP)
 
@@ -88,11 +88,11 @@ public class Autonomous extends LinearOpMode {
     public void driveForwardTime(double power,long time) throws InterruptedException{
         motorLeft.setPower(power);
         motorRight.setPower(power);
-        Thread.sleep(time)
+        Thread.sleep(time);
     }
     public void turnLeftTime(double power, long time) throws InterruptedException{
         motorLeft.setPower(power);
         motorRight.setPower(power);
-
+        Thread.sleep(time);
     }
 }
