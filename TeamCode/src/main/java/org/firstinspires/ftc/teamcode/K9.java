@@ -70,7 +70,7 @@ public class K9 extends LinearOpMode
             }
             if (gamepad1.b)
             {
-                Grabber.setPosition(0.0); // Set the grabber to the open position
+                Grabber.setPosition(0.0+0.8); // Set the grabber to the open position
                 //System.out.println("The B button was pressed, and the grabber opened.");
             }
             if (gamepad1.x)
