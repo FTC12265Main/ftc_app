@@ -31,6 +31,7 @@ TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+<<<<<<< HEAD
 //public class Base_EDITED extends LinearOpMode
 //{
 //
@@ -74,4 +75,79 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //
 }
+=======
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.util.Range;
+
+import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
+
+/**
+ * This OpMode uses the common Pushbot hardware class to define the devices on the robot.
+ * All device access is managed through the HardwarePushbot class.
+ * The code is structured as a LinearOpMode
+ *
+ * This particular OpMode executes a POV Game style Teleop for a PushBot
+ * In this mode the left stick moves the robot FWD and back, the Right stick turns left and right.
+ * It raises and lowers the claw using the Gampad Y and A buttons respectively.
+ * It also opens and closes the claws slowly using the left and right Bumper buttons.
+ *
+ * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
+ * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
+ */
+
+@TeleOp(name="Pushbot: Teleop POV", group="Pushbot")
+//@Disabled
+public class Autonomous extends LinearOpMode {
+
+    /* Declare OpMode members. */
+    HardwarePushbot robot           = new HardwarePushbot();   // Use a Pushbot's hardware
+                                                               // could also use HardwarePushbotMatrix class.
+    double          clawOffset      = 0;                       // Servo mid position
+    final double    CLAW_SPEED      = 0.02 ;                   // sets rate to move servo
+
+    @Override
+    public void runOpMode() {
+        motorLeft = hardwareMap.dcMotor.get("motorLeft");
+        motorRight = hardwareMap.dcMotor.get("motorRight");
+        motorRight.setDirection(DcMotor.Direction.REVERSE);
+        armServo = hardwareMap.servo.get("armServo");
+        Grabber = hardwareMap.servo.get("Grabber");
+        double left;
+        double right;
+        double max;
+
+        /* Initialize the hardware variables.
+         * The init() method of the hardware class does all the work here
+         */
+        robot.init(hardwareMap);
+
+        // Send telemetry message to signify robot waiting;
+        telemetry.addData("Say", "Hello Driver");    //
+        telemetry.update();
+
+        // Wait for the game to start (driver presses PLAY)
+        waitForStart();
+
+
+        // run until the end of the match (driver presses STOP)
+
+    }
+    public void driveForwardTime(double power,long time) throws InterruptedException{
+        motorLeft.setPower(power);
+        motorRight.setPower(power);
+        Thread.sleep(time);
+    }
+    public void turnLeftTime(double power, long time) throws InterruptedException{
+        motorLeft.setPower(-power);
+        motorRight.setPower(power);
+        Thread.sleep(time);
+    }
+    public void turnLeftTime(double power, long time ) throws InterruptedException{
+        motorLeft.setPower(power);
+        motorRight.setPower(-power);
+        Thread.sleep(time);
+    }
+>>>>>>> f3e07e0b599500a09405c2d629c00b0c265d5a6e
 }
