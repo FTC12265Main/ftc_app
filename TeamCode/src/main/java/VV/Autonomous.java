@@ -34,10 +34,20 @@ package VV;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
+
+
+//MotorLeft = hardwareMap.dcMotor.get("MotorLeft");
+//        MotorRight = hardwareMap.dcMotor.get("MotorRight");
+//        MotorLeft.setDirection(DcMotor.Direction.REVERSE);
+//        Shooter = hardwareMap.dcMotor.get("Shooter");
+//        BallIntake = hardwareMap.dcMotor.get("BallINtake");
 /**
  * This file illustrates the concept of driving a path based on time.
  * It uses the common Pushbot hardware class to define the drive on the robot.
@@ -67,9 +77,24 @@ public class Autonomous extends LinearOpMode {
     HardwarePushbot         robot   = new HardwarePushbot();   // Use a Pushbot's hardware
     private ElapsedTime     runtime = new ElapsedTime();
 
+    DcMotor MotorLeft;
+    DcMotor MotorRight;
+    DcMotor Shooter;
+    DcMotor BallIntake;
+    DcMotor BallLift;
+    DcMotor YogaBall;
+
+    Servo LeftBeacon;
+    Servo RightBeacon;
+
+
 
     static final double     FORWARD_SPEED = 0.6;
     static final double     TURN_SPEED    = 0.5;
+
+    static final double     SHOOT_SPEED   = 1.0;
+
+
 
     @Override
     public void runOpMode() {
@@ -80,8 +105,19 @@ public class Autonomous extends LinearOpMode {
          */
         robot.init(hardwareMap);
 
+        MotorLeft = hardwareMap.dcMotor.get("MotorLeft");
+        MotorRight = hardwareMap.dcMotor.get("MotorRight");
+        MotorLeft.setDirection(DcMotor.Direction.REVERSE);
+        Shooter = hardwareMap.dcMotor.get("Shooter");
+        BallIntake = hardwareMap.dcMotor.get("BallIntake");
+        BallLift = hardwareMap.dcMotor.get("BallLift");
+        YogaBall = hardwareMap.dcMotor.get("YogaBall");
+
+
+
+
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Status", "Ready to run");    //
+        telemetry.addData("Ready to Rumble!™",);
         telemetry.update();
 
         // Wait for the game to start (driver presses PLAY)
@@ -89,38 +125,110 @@ public class Autonomous extends LinearOpMode {
 
         // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
 
-        // Step 1:  Drive forward for 3 seconds
-        robot.leftMotor.setPower(FORWARD_SPEED);
-        robot.rightMotor.setPower(FORWARD_SPEED);
+        //WORK ON INIT
+
+        // Step 2:  Drive forward for 3 seconds
+        Shooter.setPower(SHOOT_SPEED);
+        BallLift.setPower(0.5);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 3.0)) {
-            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.addData("Step 1 Complete, Balls shooted", runtime.seconds());
             telemetry.update();
         }
 
-        // Step 2:  Spin rightMotorPower for 1.3 seconds
-        robot.leftMotor.setPower(TURN_SPEED);
-        robot.rightMotor.setPower(-TURN_SPEED);
+        MotorLeft.setPower(FORWARD_SPEED);
+        MotorRight.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.3)) {
-            telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
+        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+            telemetry.addData("Step 2 Complete, Moved forward", runtime.seconds());
             telemetry.update();
         }
 
-        // Step 3:  Drive Backwards for 1 Second
-        robot.leftMotor.setPower(-FORWARD_SPEED);
-        robot.rightMotor.setPower(-FORWARD_SPEED);
+        MotorLeft.setPower(FORWARD_SPEED);
+        MotorRight.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.0)) {
-            telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
+        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+            telemetry.addData("Step 3 Complete, hit ball", runtime.seconds());
             telemetry.update();
         }
 
-        // Step 4:  Stop and close the claw.
-        robot.leftMotor.setPower(0);
-        robot.rightMotor.setPower(0);
-        robot.leftClaw.setPosition(1.0);
-        robot.rightClaw.setPosition(0.0);
+        MotorLeft.setPower(-FORWARD_SPEED);
+        MotorRight.setPower(-FORWARD_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+            telemetry.addData("Step 4 Complete, Backed up", runtime.seconds());
+            telemetry.update();
+        }
+
+        MotorLeft.setPower(TURN_SPEED);
+        MotorRight.setPower(-TURN_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+            telemetry.addData("Step 5 Complete, Turned", runtime.seconds());
+            telemetry.update();
+        }
+
+        MotorLeft.setPower(FORWARD_SPEED);
+        MotorRight.setPower(FORWARD_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+            telemetry.addData("Step 2 Complete, Moved forward", runtime.seconds());
+            telemetry.update();
+        }
+//
+//        MotorLeft.setPower(FORWARD_SPEED);
+//        MotorRight.setPower(FORWARD_SPEED);
+//        runtime.reset();
+//        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+//            telemetry.addData("Step 2 Complete, Moved forward", runtime.seconds());
+//            telemetry.update();
+//        }
+//
+//        MotorLeft.setPower(FORWARD_SPEED);
+//        MotorRight.setPower(FORWARD_SPEED);
+//        runtime.reset();
+//        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+//            telemetry.addData("Step 2 Complete, Moved forward", runtime.seconds());
+//            telemetry.update();
+//        }
+//
+//        MotorLeft.setPower(FORWARD_SPEED);
+//        MotorRight.setPower(FORWARD_SPEED);
+//        runtime.reset();
+//        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+//            telemetry.addData("Step 2 Complete, Moved forward", runtime.seconds());
+//            telemetry.update();
+//        }
+//
+//        MotorLeft.setPower(FORWARD_SPEED);
+//        MotorRight.setPower(FORWARD_SPEED);
+//        runtime.reset();
+//        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+//            telemetry.addData("Step 2 Complete, Moved forward", runtime.seconds());
+//            telemetry.update();
+//        }
+//
+//        MotorLeft.setPower(FORWARD_SPEED);
+//        MotorRight.setPower(FORWARD_SPEED);
+//        runtime.reset();
+//        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+//            telemetry.addData("Step 2 Complete, Moved forward", runtime.seconds());
+//            telemetry.update();
+//        }
+//
+//        MotorLeft.setPower(FORWARD_SPEED);
+//        MotorRight.setPower(FORWARD_SPEED);
+//        runtime.reset();
+//        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+//            telemetry.addData("Step 2 Complete, Moved forward", runtime.seconds());
+//            telemetry.update();
+//        }
+
+
+//        robot.leftMotor.setPower(0);
+//        robot.rightMotor.setPower(0);
+//        robot.leftClaw.setPosition(1.0);
+//        robot.rightClaw.setPosition(0.0);
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
