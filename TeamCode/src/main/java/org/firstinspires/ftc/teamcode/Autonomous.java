@@ -99,23 +99,24 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 @Autonomous(name="Pushbot: Autonomous", group="Pushbot")
 //@Disabled
-public class Autonomous extends Ev {
+public class Autonomous extends LinearOpMode {
 
     /* Declare OpMode members. */
-    HardwarePushbot robot           = new HardwarePushbot();   // Use a Pushbot's hardware
+    HardwarePushbot robot = new HardwarePushbot();   // Use a Pushbot's hardware
                                                                // could also use HardwarePushbotMatrix class.
-    double          clawOffset      = 0;                       // Servo mid position
+    double           clawOffset      = 0;                       // Servo mid position
     final double    CLAW_SPEED      = 0.02 ;                   // sets rate to move servo
     double leftMotorPower;
     double rightMotorPower;
     double maxPower;
+    motorLeft = hardwareMap.dcMotor.get("motorLeft");
+    motorRight = hardwareMap.dcMotor.get("motorRight");
+    motorRight.setDirection(DcMotor.Direction.REVERSE);
+    flipper = hardwareMap.dcMotor.get("flipper");
+//    Grabber = hardwareMap.servo.get("Grabber")
+    waitForStart();
     @Override
     public void runOpMode() {
-        motorLeft = hardwareMap.dcMotor.get("motorLeft");
-        motorRight = hardwareMap.dcMotor.get("motorRight");
-        motorRight.setDirection(DcMotor.Direction.REVERSE);
-        armServo = hardwareMap.servo.get("armServo");
-        Grabber = hardwareMap.servo.get("Grabber");
 
 
         /* Initialize the hardware variables.
@@ -129,7 +130,8 @@ public class Autonomous extends Ev {
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
-
+        driveForwardTime(0.5, 500);
+        turnLeftTime(0.5, 500);
 
         // run until the end of the match (driver presses STOP)
 
