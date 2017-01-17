@@ -39,8 +39,9 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
+import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 
 //MotorLeft = hardwareMap.dcMotor.get("MotorLeft");
@@ -69,12 +70,12 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Pushbot: Auto Drive By Time", group="Pushbot")
-@Disabled
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Pushbot: Auto Drive By Time")
+//@Disabled
 public class Autonomous extends LinearOpMode {
 
     /* Declare OpMode members. */
-    HardwarePushbot         robot   = new HardwarePushbot();   // Use a Pushbot's hardware
+    //HardwarePushbot         robot   = new HardwarePushbot();   // Use a Pushbot's hardware
     private ElapsedTime     runtime = new ElapsedTime();
 
     DcMotor MotorLeft;
@@ -103,21 +104,29 @@ public class Autonomous extends LinearOpMode {
          * Initialize the drive system variables.
          * The init() method of the hardware class does all the work here
          */
-        robot.init(hardwareMap);
+        telemetry.addLine("Place1");
+        telemetry.update();
+        //robot.init(hardwareMap);
 
         MotorLeft = hardwareMap.dcMotor.get("MotorLeft");
         MotorRight = hardwareMap.dcMotor.get("MotorRight");
         MotorLeft.setDirection(DcMotor.Direction.REVERSE);
-        Shooter = hardwareMap.dcMotor.get("Shooter");
-        BallIntake = hardwareMap.dcMotor.get("BallIntake");
-        BallLift = hardwareMap.dcMotor.get("BallLift");
-        YogaBall = hardwareMap.dcMotor.get("YogaBall");
+        try {
+
+            Shooter = hardwareMap.dcMotor.get("Shooter");
+            BallIntake = hardwareMap.dcMotor.get("BallIntake");
+            BallLift = hardwareMap.dcMotor.get("BallLift");
+            YogaBall = hardwareMap.dcMotor.get("YogaBall");
+        }catch(Exception e ){
+
+        }
+
 
 
 
 
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Ready to Rumble!™",);
+        Telemetry.Item addData = telemetry.addData("Ready to Rumble!™", runtime.seconds());
         telemetry.update();
 
         // Wait for the game to start (driver presses PLAY)
@@ -128,11 +137,20 @@ public class Autonomous extends LinearOpMode {
         //WORK ON INIT
 
         // Step 2:  Drive forward for 3 seconds
+/*
         Shooter.setPower(SHOOT_SPEED);
         BallLift.setPower(0.5);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 3.0)) {
             telemetry.addData("Step 1 Complete, Balls shooted", runtime.seconds());
+            telemetry.update();
+        }
+*/
+
+        MotorLeft.setPower(FORWARD_SPEED);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+            telemetry.addData("Step 1 Complete, balls shooted", runtime.seconds());
             telemetry.update();
         }
 
