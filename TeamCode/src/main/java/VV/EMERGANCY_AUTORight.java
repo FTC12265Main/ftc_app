@@ -32,15 +32,11 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 package VV;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-
-import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 
@@ -49,6 +45,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 //        MotorLeft.setDirection(DcMotor.Direction.REVERSE);
 //        Shooter = hardwareMap.dcMotor.get("Shooter");
 //        BallIntake = hardwareMap.dcMotor.get("BallINtake");
+
 /**
  * This file illustrates the concept of driving a path based on time.
  * It uses the common Pushbot hardware class to define the drive on the robot.
@@ -70,9 +67,9 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Pushbot: Auto Drive By Time")
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="EMERGENCY AUTO Right")
 //@Disabled
-public class Autonomous extends LinearOpMode {
+public class EMERGANCY_AUTORight extends LinearOpMode {
 
     /* Declare OpMode members. */
     //HardwarePushbot         robot   = new HardwarePushbot();   // Use a Pushbot's hardware
@@ -147,17 +144,11 @@ public class Autonomous extends LinearOpMode {
         }
 */
 
-        MotorLeft.setPower(FORWARD_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
-            telemetry.addData("Step 1 Complete, balls shooted", runtime.seconds());
-            telemetry.update();
-        }
 
         MotorLeft.setPower(FORWARD_SPEED);
         MotorRight.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+        while (opModeIsActive() && (runtime.seconds() < 2.0)) {
             telemetry.addData("Step 2 Complete, Moved forward", runtime.seconds());
             telemetry.update();
         }
@@ -165,13 +156,13 @@ public class Autonomous extends LinearOpMode {
         MotorLeft.setPower(FORWARD_SPEED);
         MotorRight.setPower(FORWARD_SPEED);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+        while (opModeIsActive() && (runtime.seconds() < 1.0)) {
             telemetry.addData("Step 3 Complete, hit ball", runtime.seconds());
             telemetry.update();
         }
 
         MotorLeft.setPower(-FORWARD_SPEED);
-        MotorRight.setPower(-FORWARD_SPEED);
+        MotorRight.setPower(FORWARD_SPEED);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 3.0)) {
             telemetry.addData("Step 4 Complete, Backed up", runtime.seconds());

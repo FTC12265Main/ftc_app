@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.Servo;
  */
 
 
-@TeleOp (name = "Tele")
+@TeleOp (name = "Teleop")
 
 //@disabled
 public class Tele extends LinearOpMode {
